@@ -10,7 +10,6 @@ function Gameboard() {
   };
   const getBoard = () => board;
   const markCell = (row, column, player) => {
-    console.log(board[row][column].getValue())
     if (board[row][column].getValue() === 0) {
       board[row][column].addMark(player);
     } else {
@@ -63,6 +62,9 @@ function GameController(
   };
   const playRound = (row, column) => {
     console.log(getActivePlayer().name +" is marking" + row + "/" + column);
+    if (board.getBoard()[row][column].getValue() !== 0) {
+      switchPlayerTurn();
+    }
     board.markCell(row, column, getActivePlayer().token);
     switchPlayerTurn();
     printNewRound();
