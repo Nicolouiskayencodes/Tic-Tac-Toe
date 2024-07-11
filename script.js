@@ -125,9 +125,19 @@ function Display(nameOne, nameTwo) {
       if(game.getGameover() === 1) {
         turnDiv.textContent = game.getActivePlayer().name + " wins!";
         gameOver = 1;
+        const restart = document.createElement("button");
+        restart.textContent = "Restart";
+        restart.addEventListener("click", () => {Form()});
+        restart.classList.add("restart");
+        turnDiv.appendChild(restart);
       } else if (game.getGameover() === 2) {
         turnDiv.textContent = "It's a tie!";
         gameOver = 1;
+        const restart =document.createElement("button")
+        restart.textContent = "Restart";
+        restart.addEventListener("click", () => {Form()});
+        restart.classList.add("restart");
+        turnDiv.appendChild(restart);
       }
   }
   boardDiv.addEventListener("click", clickHandlerBoard);
