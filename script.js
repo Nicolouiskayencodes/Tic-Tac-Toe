@@ -105,8 +105,10 @@ function Display(nameOne, nameTwo) {
           cellButton.classList.add("cell");
           cellButton.dataset.row = j;
           cellButton.dataset.column = index;
-          if (cell.getValue() !== 0){
-          cellButton.textContent = cell.getValue();
+          if (cell.getValue() === "x"){
+            cellButton.style.backgroundImage = "url(images/X.jpg)"
+          } else if (cell.getValue() === "o"){
+            cellButton.style.backgroundImage = "url(images/O.jpg)"
           }
           boardDiv.appendChild(cellButton);
       })

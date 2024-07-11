@@ -1,20 +1,26 @@
 * {
   box-sizing: border-box;
 }
+body {
+  background-color: darkslateblue;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 #gameboard {
   display: grid;
-  grid-template-columns: 100px 100px 100px;
-  grid-template-rows: 100px 100px 100px;
+  grid-template-columns: 200px 200px 200px;
+  grid-template-rows: 200px 200px 200px;
   justify-content: center;
   gap: 0px;
 }
 .cell {
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 50px;
+  background-position: center;
+  background-size: cover;
 }
 
 #middle-middle {
@@ -62,5 +68,39 @@
 
 form {
   position: fixed;
-  bottom: 0;
+  bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px outset black;
+  box-shadow: 2px 2px 2px black;
+  background-color: white;
+}
+
+form div {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+}
+input {
+  margin-left: 10px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#newGame {
+  border-radius: 15px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#newGame:active {
+  background-color: lightgray;
+}
+
+#playerTurn {
+  text-align: center;
+  margin: 20px;
+  font-size: 40px;
+  font-weight: 800;
+  color: cyan;
 }
