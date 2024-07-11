@@ -104,3 +104,17 @@ input {
   font-weight: 800;
   color: cyan;
 }
+
+@media only screen and (max-width: 600px) {
+  #gameboard {
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+  }
+  .cell {
+    height: 100px;
+    width: 100px;
+  }
+  #playerTurn {
+    font-size: 20px;
+  }
+}
