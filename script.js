@@ -2,6 +2,14 @@ function Gameboard() {
   const rows = 3;
   const columns = 3;
   const board =  [];
+  const Cell = () =>{
+    let value = 0;
+    const addMark = (player) => {
+      value = player;
+    };
+    const getValue = () => value;
+    return {addMark, getValue};
+  }
   for (let i=0; i<rows; i++) {
     board[i]=[];
     for (let j=0;j<columns; j++) {
@@ -20,17 +28,18 @@ function Gameboard() {
     const boardWithCellValues = board.map((row) => row.map((cell) => cell.getValue()))
     console.log(boardWithCellValues);
   };
+  
   return {getBoard, markCell, printBoard}
 }
 
-function Cell() {
-  let value = 0;
-  const addMark = (player) => {
-    value = player;
-  };
-  const getValue = () => value;
-  return {addMark, getValue};
-}
+// function Cell() {
+//   let value = 0;
+//   const addMark = (player) => {
+//     value = player;
+//   };
+//   const getValue = () => value;
+//   return {addMark, getValue};
+// }
 
 function GameController(
   playerOneName = "Player One",
@@ -66,6 +75,13 @@ function GameController(
       switchPlayerTurn();
     }
     board.markCell(row, column, getActivePlayer().token);
+    if ((board.getBoard()[row][0].getValue() === board.getBoard()[row][1].getValue() && board.getBoard()[row][0].getValue() === board.getBoard()[row][2].getValue()) || (board.getBoard()[0][column].getValue() === board.getBoard()[1][column].getValue() && board.getBoard()[0][column].getValue() === board.getBoard()[2][column].getValue()) || (board.getBoard()[1][1].getValue() !== 0 && board.getBoard()[1][1].getValue() === board.getBoard()[0][0].getValue() && board.getBoard()[1][1].getValue() === board.getBoard()[2][2].getValue()) || (board.getBoard()[1][1].getValue() !== 0 && board.getBoard()[1][1].getValue() === board.getBoard()[0][2].getValue() && board.getBoard()[1][1].getValue() === board.getBoard()[2][0].getValue())) {
+      board.printBoard();
+      console.log(getActivePlayer().name + " wins!");
+      game = GameController();
+      return;
+    }
+
     switchPlayerTurn();
     printNewRound();
   };
@@ -73,4 +89,4 @@ function GameController(
   return {playRound, getActivePlayer};
 }
 
-const game = GameController();
+let game = GameController();
