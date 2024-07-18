@@ -106,9 +106,9 @@ function Display(nameOne, nameTwo) {
           cellButton.dataset.row = j;
           cellButton.dataset.column = index;
           if (cell.getValue() === "x"){
-            cellButton.style.backgroundImage = "url(images/X.jpg)"
+            cellButton.style.backgroundImage = "url(images/X2.jpeg)"
           } else if (cell.getValue() === "o"){
-            cellButton.style.backgroundImage = "url(images/O.jpg)"
+            cellButton.style.backgroundImage = "url(images/O2.jpg)"
           }
           boardDiv.appendChild(cellButton);
       })
